@@ -6,8 +6,8 @@
 
 **Author: Tariq Abu-Laban**
 
-- [tests report](https://github.com/Abu-laban/auth-api/actions).
-- [pull request](https://github.com/Abu-laban/auth-api/pull/1).
+- [tests report](https://github.com/Abu-laban/caps/actions).
+- [pull request](https://github.com/Abu-laban/caps/pull/1).
 
 **Setup**
 
