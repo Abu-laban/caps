@@ -2,7 +2,9 @@
 
 require('dotenv').config();
 const faker = require('faker');
-const events = require('../../../events');
+const io = require('socket.io-client');
+const host = process.env.HOST;
+const connectionToCaps = io.connect(`${host}/caps`);
 
 setInterval(() => {
     let customerOrder = {
@@ -11,12 +13,12 @@ setInterval(() => {
         customer: faker.name.findName(),
         address: faker.address.streetAddress(),
     };
-    events.emit('pickup', customerOrder);
+    connectionToCaps.emit('pickup', customerOrder);
 }, 5000);
 
-events.on('delivered', payload => {
+connectionToCaps.on('delivered', payload => {
 
     console.log(`VENDOR: Thank you for delivering ${payload.orderID}`);
 });
 
-module.exports = events;
+module.exports = connectionToCaps
