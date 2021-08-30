@@ -1,26 +1,19 @@
 {
-  "name": "caps",
+  "name": "Vendor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "vendor.js",
   "scripts": {
     "test": "jest --coverage"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Abu-laban/caps.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Abu-laban/caps/issues"
-  },
-  "homepage": "https://github.com/Abu-laban/caps#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
     "faker": "^5.5.3",
     "jest": "^27.1.0",
+    "socket.io-client": "^4.2.0",
     "supertest": "^6.1.6"
   }
 }
