@@ -6,20 +6,24 @@ const io = require('socket.io-client');
 const host = process.env.HOST;
 const connectionToCaps = io.connect(`${host}/caps`);
 
-const store = process.argv.splice(2)[0]
+const store = '1-206-flowers';
 
 connectionToCaps.emit('join', store);
 
-connectionToCaps.emit('getAll')
+connectionToCaps.emit('getAll', store)
 
 connectionToCaps.on('message', msg => {
-    console.log('messages: ', msg.payload)
-    connectionToCaps.emit('received', msg)
+    console.log('messages: ', msg.payload.payload)
+    connectionToCaps.emit('received', msg.payload.payload)
 })
 
 connectionToCaps.on('delivered', payload => {
 
     console.log(`VENDOR: Thank you for delivering ${payload.orderID}`);
 });
+
+connectionToCaps.on("delivered", msg => {
+    connectionToCaps.emit('received', msg)
+})
 
 module.exports = connectionToCaps
